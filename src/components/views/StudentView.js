@@ -45,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     padding: theme.spacing(2),
   },
+  editButton: {
+    marginRight: theme.spacing(2),
+  },
 }));
 
 const StudentView = (props) => {
@@ -91,14 +94,25 @@ const StudentView = (props) => {
           <Typography variant="h4" component="h1">
             {student.firstname} {student.lastname}
           </Typography>
-          <Button
-            component={Link}
-            to="/students"
-            variant="outlined"
-            className={classes.backButton}
-          >
-            Back to Students
-          </Button>
+          <div>
+            <Button
+              component={Link}
+              to={`/editstudent/${student.id}`}
+              variant="contained"
+              color="primary"
+              className={classes.editButton}
+            >
+              Edit Student
+            </Button>
+            <Button
+              component={Link}
+              to="/students"
+              variant="outlined"
+              className={classes.backButton}
+            >
+              Back to Students
+            </Button>
+          </div>
         </div>
 
         <Grid container spacing={3}>
