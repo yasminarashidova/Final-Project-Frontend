@@ -262,4 +262,4 @@ CampusView.propTypes = {
 
 export default CampusView;
 
-export default CampusView;
+
