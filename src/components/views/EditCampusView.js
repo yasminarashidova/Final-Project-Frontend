@@ -15,7 +15,7 @@ import {
   Grid,
   CircularProgress,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 
@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 const EditCampusView = ({ campus, editCampus, loading, error }) => {
   const classes = useStyles();
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -95,7 +96,7 @@ const EditCampusView = ({ campus, editCampus, loading, error }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    editCampus(campus.id, formData);
+    editCampus(formData);
   };
 
   if (loading) {
@@ -113,12 +114,12 @@ const EditCampusView = ({ campus, editCampus, loading, error }) => {
           <Typography variant="h6">Error: {error}</Typography>
           <Button
             component={Link}
-            to={`/campus/${campus?.id}`}
+            to="/"
             variant="outlined"
             startIcon={<ArrowBackIcon />}
             className={classes.backButton}
           >
-            Back to Campus
+            Back to Home
           </Button>
         </Paper>
       </Container>
@@ -132,12 +133,12 @@ const EditCampusView = ({ campus, editCampus, loading, error }) => {
           <Typography variant="h5">Campus not found</Typography>
           <Button
             component={Link}
-            to="/campuses"
+            to="/"
             variant="outlined"
             startIcon={<ArrowBackIcon />}
             className={classes.backButton}
           >
-            Back to Campuses
+            Back to Home
           </Button>
         </Paper>
       </Container>
@@ -150,12 +151,12 @@ const EditCampusView = ({ campus, editCampus, loading, error }) => {
         <div className={classes.header}>
           <Button
             component={Link}
-            to={`/campus/${campus.id}`}
+            to="/"
             variant="outlined"
             startIcon={<ArrowBackIcon />}
             className={classes.backButton}
           >
-            Back to Campus
+            Back to Home
           </Button>
           <Typography variant="h4">Edit Campus</Typography>
         </div>
@@ -251,4 +252,4 @@ EditCampusView.propTypes = {
   error: PropTypes.string,
 };
 
-export default EditCampusView; 
+export default EditCampusView;
