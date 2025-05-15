@@ -149,7 +149,7 @@ const CampusView = ({ campus, loading, error }) => {
           </Button>
           <Button
             component={Link}
-            to={`/campuses/${campus.id}/edit`}
+            to={`/campus/${campus.id}/edit`}
             variant="contained"
             color="primary"
           >
@@ -220,7 +220,7 @@ const CampusView = ({ campus, loading, error }) => {
                     size="small"
                     color="primary"
                     component={Link}
-                    to={`/students/${student.id}/edit`}
+                    to={`/editstudent/${student.id}`}
                   >
                     Edit
                   </Button>
@@ -259,5 +259,7 @@ CampusView.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
 };
+
+export default CampusView;
 
 export default CampusView;
